@@ -23,9 +23,9 @@ while True:
     x1 = (x + size[0] // 2) if position == 'center' else x
     y1 = (y + size[1] // 2) if position == 'center' else y
     f = True
-    for x in range(x0, x1 + 1):
-        for y in range(y0, y1 + 1):
-            r, g, b = pix[x, y]
+    for x2 in range(x0, x1 + 1):
+        for y2 in range(y0, y1 + 1):
+            r, g, b = pix[x2, y2]
             if r / 16 > 15 and g / 16 > 15 and b / 16 > 15:
                 pass
             else:
