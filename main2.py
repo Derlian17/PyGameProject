@@ -1,4 +1,4 @@
-def return_sheet(schem, sheet, step=1, wall=1, floor=0):
+def return_sheet(schem, sheet, step=1, wall=1, floor=0, sep=';'):
 
     from PIL import Image
     # step = 5
@@ -13,7 +13,8 @@ def return_sheet(schem, sheet, step=1, wall=1, floor=0):
             n = 0
             for i in range(step):
                 for j in range(step):
-                    r, g, b, a = pix[x+i, y+j]
+                    s = pix[x+i, y+j]
+                    r, g, b = s[:3]
                     if r / 16 > 15 and g / 16 > 15 and b / 16 > 15:
                         n += 1
             n = round(n / step**2)
@@ -21,8 +22,8 @@ def return_sheet(schem, sheet, step=1, wall=1, floor=0):
                 n = wall
             else:
                 n = floor
-            print(f'{n};', end='', file=sheet)
+            print(f'{n}', end=sep, file=sheet)
         print('', file=sheet)
 
 
-
+return_sheet('image2.png', 'sheet2.txt', step=5, wall=1, floor=' ', sep='')
